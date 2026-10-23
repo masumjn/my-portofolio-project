@@ -173,9 +173,9 @@ export default function Home() {
         r = "Craft";
       } else if (curY < 3080) {
         l = "Craft";
-        r = "IoT & Hardware";
+        r = "Hardware Architecture";
       } else if (curY < 4340) {
-        l = "IoT & Hardware";
+        l = "Hardware Architecture";
         r = "Projects";
       } else if (curY < 5560) {
         l = "Projects";
@@ -258,6 +258,7 @@ export default function Home() {
             className="index_frame p-16 flex items-center"
             style={{ left: "0px" }}
           >
+            {/* Lingkaran Minimalis Deep Obsidian */}
             <div
               className="absolute rounded-full pointer-events-none transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
               style={{
@@ -265,7 +266,8 @@ export default function Home() {
                 top: "50%",
                 width: "520px",
                 height: "520px",
-                backgroundColor: "var(--yellow)",
+                backgroundColor: "#0F1117",
+                boxShadow: "0 25px 60px -15px rgba(15, 17, 23, 0.3)",
                 transformOrigin: "center center",
                 transform: isLoaded
                   ? "translateY(-50%) scale(1)"
@@ -301,7 +303,7 @@ export default function Home() {
           </section>
 
           {/* ======================================================== */}
-          {/* FRAME 02 (Monogram M - J): Enterprise Systems Slide      */}
+          {/* FRAME 02 (Monogram M - J): Cyber Emerald Active State    */}
           {/* ======================================================== */}
           <Link
             data-variant="slide"
@@ -319,11 +321,12 @@ export default function Home() {
                 M
               </span>
               <div
-                className="shrink-0 rounded-full mx-6"
+                className="shrink-0 rounded-full mx-6 transition-transform duration-500 group-hover:scale-105"
                 style={{
                   width: "720px",
                   height: "720px",
-                  backgroundColor: "var(--orange)",
+                  backgroundColor: "#10B981",
+                  boxShadow: "0 20px 60px rgba(16, 185, 129, 0.25)",
                 }}
               />
               <span className="text-[580px] font-black tracking-tighter leading-none text-black select-none shrink-0 h-[720px] flex items-center">
@@ -356,7 +359,7 @@ export default function Home() {
           </Link>
 
           {/* ======================================================== */}
-          {/* FRAME 04 (IoT & Embedded Node): Custom ESP32-S3 PCB      */}
+          {/* FRAME 04 (IoT & Embedded Node): Pure T-Tetris PCB Collage */}
           {/* ======================================================== */}
           <Link
             data-variant="default"
@@ -364,149 +367,246 @@ export default function Home() {
             className="index_frame flex items-center justify-center group cursor-none"
             style={{ left: "3720px" }}
           >
-            <span className="index_label__cgZWW">IoT &amp; Hardware Prototype</span>
+            <span className="index_label__cgZWW">Hardware Architecture</span>
 
-            {/* PCB BOARD WIDGET */}
             <div className="relative flex flex-col items-center gap-3 transition-transform duration-300 group-hover:scale-[1.03]">
-              <div className="relative w-[300px] h-[340px] rounded-[14px] bg-[#0c1236] border-2 border-[#1e2a6b] shadow-2xl overflow-hidden p-3 select-none">
-                
-                {/* SVG Skematik Layout PCB ESP32-S3 */}
+              
+              {/* CONTAINER BALOK T-TETRIS DENGAN PADDING */}
+              <div
+                className="relative w-[340px] h-[330px] select-none"
+                style={{ filter: "drop-shadow(0 20px 40px rgba(8, 14, 44, 0.75))" }}
+              >
+                {/* Frame SVG Berlekuk Balok T Tetris */}
                 <svg
-                  viewBox="0 0 300 340"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full"
+                  viewBox="0 0 340 330"
+                  className="absolute inset-0 w-full h-full pointer-events-none"
                 >
-                  {/* Lubang Baut Sudut PCB (Mounting Holes) */}
-                  <circle cx="16" cy="16" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
-                  <circle cx="284" cy="16" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
-                  <circle cx="16" cy="324" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
-                  <circle cx="284" cy="324" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
+                  <defs>
+                    <linearGradient id="pcbFrameBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0c1238" />
+                      <stop offset="100%" stopColor="#06091e" />
+                    </linearGradient>
+                  </defs>
 
-                  {/* Silkscreen Batas Modul ESP32-S3 */}
-                  <rect x="92" y="16" width="176" height="74" rx="3" stroke="#6b7ec9" strokeWidth="1.2" strokeDasharray="3 2" />
-                  <text x="274" y="24" fill="#889ce8" fontSize="6" fontFamily="monospace" transform="rotate(90 274 24)">
-                    ESP32-S3-DEVKITC-1-N8R2
-                  </text>
+                  <path
+                    d="
+                      M 16 0
+                      H 324
+                      A 16 16 0 0 1 340 16
+                      V 164
+                      A 16 16 0 0 1 324 180
+                      H 286
+                      A 10 10 0 0 0 276 190
+                      V 314
+                      A 16 16 0 0 1 260 330
+                      H 80
+                      A 16 16 0 0 1 64 314
+                      V 190
+                      A 10 10 0 0 0 54 180
+                      H 16
+                      A 16 16 0 0 1 0 164
+                      V 16
+                      A 16 16 0 0 1 16 0
+                      Z
+                    "
+                    fill="url(#pcbFrameBg)"
+                    stroke="#23357d"
+                    strokeWidth="2"
+                  />
 
-                  {/* Pin Header ESP32 Baris Atas */}
-                  {Array.from({ length: 18 }).map((_, i) => (
-                    <g key={`pin-top-${i}`} transform={`translate(${98 + i * 9.2}, 24)`}>
-                      <circle cx="0" cy="0" r="2.8" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
-                      <circle cx="0" cy="0" r="1.1" fill="#050814" />
-                    </g>
-                  ))}
-
-                  {/* Pin Header ESP32 Baris Bawah */}
-                  {Array.from({ length: 18 }).map((_, i) => (
-                    <g key={`pin-bot-${i}`} transform={`translate(${98 + i * 9.2}, 82)`}>
-                      <circle cx="0" cy="0" r="2.8" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
-                      <circle cx="0" cy="0" r="1.1" fill="#050814" />
-                    </g>
-                  ))}
-
-                  {/* Header I2S / Sensor Audio Bulat (Kiri Atas) */}
-                  <circle cx="44" cy="48" r="18" stroke="#4355a4" strokeWidth="1" strokeDasharray="2 2" fill="none" />
-                  <text x="32" y="44" fill="#7182cc" fontSize="5" fontFamily="monospace">GND VDD SD</text>
-                  <text x="32" y="58" fill="#7182cc" fontSize="5" fontFamily="monospace">L/R WS SCK</text>
-                  <circle cx="36" cy="36" r="2.2" fill="#16a34a" />
-                  <circle cx="44" cy="36" r="2.2" fill="#16a34a" />
-                  <circle cx="52" cy="36" r="2.2" fill="#16a34a" />
-                  <circle cx="36" cy="62" r="2.2" fill="#16a34a" />
-                  <circle cx="44" cy="62" r="2.2" fill="#16a34a" />
-                  <circle cx="52" cy="62" r="2.2" fill="#16a34a" />
-
-                  {/* Jalur Tembaga / PCB Traces (Khas Sudut 45 Derajat) */}
-                  <path d="M44 36 L44 26 L80 26 L92 38 L98 38" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M52 36 L52 30 L82 30 L94 42 L98 42" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M44 62 L74 62 L90 74 L98 74" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M52 62 L78 62 L94 78 L98 78" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M125 82 L125 106 L154 135 L154 286 L180 312 L196 312" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M134 82 L134 102 L162 130 L162 280 L186 304 L204 304" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M236 298 L248 310 L260 310" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M246 290 L256 300 L268 300" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-
-                  {/* Blok Relay 4-Channel (Sisi Kiri) */}
-                  <rect x="18" y="104" width="76" height="216" rx="2" stroke="#6b7ec9" strokeWidth="1.2" strokeDasharray="3 2" />
-                  <text x="32" y="332" fill="#889ce8" fontSize="6.5" fontFamily="monospace">RELAY-4-SRD</text>
-
-                  {/* Terminal Screw Relay */}
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <g key={`relay-term-${i}`} transform={`translate(26, ${116 + i * 25})`}>
-                      <rect x="0" y="0" width="22" height="18" rx="2" fill="#080d28" stroke="#4355a4" strokeWidth="1" />
-                      <circle cx="11" cy="9" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
-                      <line x1="7" y1="5" x2="15" y2="13" stroke="#889ce8" strokeWidth="1.2" />
-                      <circle cx="28" cy="9" r="2.2" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
-                      <circle cx="28" cy="9" r="0.9" fill="#050814" />
-                    </g>
-                  ))}
-
-                  {/* Header Konektor Tengah (Jumper / Sensor Header) */}
-                  {Array.from({ length: 6 }).map((_, i) => (
-                    <g key={`mid-hdr-${i}`} transform={`translate(154, ${118 + i * 10})`}>
-                      <rect x="-4" y="-4" width="8" height="8" rx="1.5" stroke="#4355a4" strokeWidth="0.8" fill="#0c1236" />
-                      <circle cx="0" cy="0" r="2.8" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
-                      <circle cx="0" cy="0" r="1.1" fill="#050814" />
-                    </g>
-                  ))}
-
-                  {/* Modul Step-Down LM2596 (Kanan Bawah) */}
-                  <rect x="228" y="160" width="58" height="68" rx="2" stroke="#6b7ec9" strokeWidth="1.2" strokeDasharray="3 2" />
-                  <text x="282" y="166" fill="#889ce8" fontSize="5.5" fontFamily="monospace" transform="rotate(90 282 166)">
-                    DC-DC-LM2596-DISP
-                  </text>
-                  <circle cx="266" cy="144" r="7" stroke="#4355a4" strokeWidth="1" />
-                  <circle cx="266" cy="244" r="7" stroke="#4355a4" strokeWidth="1" />
-
-                  {/* Terminal Blok Daya: OUT & IN (Bawah Kanan) */}
-                  {/* OUT */}
-                  <g transform="translate(176, 290)">
-                    <rect x="0" y="0" width="38" height="34" rx="2" stroke="#6b7ec9" strokeWidth="1.2" />
-                    <text x="12" y="-4" fill="#889ce8" fontSize="6.5" fontFamily="monospace">OUT</text>
-                    <g transform="translate(10, 16)">
-                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
-                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
-                      <text x="-3" y="12" fill="#22c55e" fontSize="7" fontWeight="bold">-</text>
-                    </g>
-                    <g transform="translate(28, 16)">
-                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
-                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
-                      <text x="-3" y="12" fill="#ef4444" fontSize="7" fontWeight="bold">+</text>
-                    </g>
-                  </g>
-
-                  {/* IN */}
-                  <g transform="translate(242, 290)">
-                    <rect x="0" y="0" width="38" height="34" rx="2" stroke="#6b7ec9" strokeWidth="1.2" />
-                    <text x="14" y="-4" fill="#889ce8" fontSize="6.5" fontFamily="monospace">IN</text>
-                    <g transform="translate(10, 16)">
-                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
-                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
-                      <text x="-3" y="12" fill="#ef4444" fontSize="7" fontWeight="bold">+</text>
-                    </g>
-                    <g transform="translate(28, 16)">
-                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
-                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
-                      <text x="-3" y="12" fill="#22c55e" fontSize="7" fontWeight="bold">-</text>
-                    </g>
-                  </g>
-
-                  {/* Status Indicator LED (Blinking Pulse) */}
-                  <g transform="translate(106, 44)">
-                    <circle cx="0" cy="0" r="2.5" fill="#38bdf8" className="animate-ping opacity-75" />
-                    <circle cx="0" cy="0" r="2" fill="#0284c7" />
-                  </g>
-                  <g transform="translate(106, 60)">
-                    <circle cx="0" cy="0" r="2.5" fill="#22c55e" className="animate-pulse" />
-                    <circle cx="0" cy="0" r="1.8" fill="#16a34a" />
-                  </g>
+                  <path
+                    d="M 24 14 H 316 V 166 H 272 V 318 H 68 V 166 H 24 Z"
+                    stroke="#1d2a63"
+                    strokeWidth="1"
+                    strokeDasharray="4 3"
+                    fill="none"
+                  />
                 </svg>
+
+                {/* KONTEN KOLASE 3 PCB */}
+                <div className="relative z-10 w-full h-full flex flex-col items-center">
+                  
+                  {/* BARIS ATAS: 2 PCB BERDAMPINGAN */}
+                  <div className="w-full pt-4 px-5 flex items-center justify-between gap-3 h-[172px]">
+                    
+                    {/* PCB 1 (Kiri Atas): Terinspirasi Layout ESP32-S3 */}
+                    <div className="relative flex-1 h-[142px] rounded-[10px] overflow-hidden border border-[#2b3c8a] bg-[#070b24] shadow-md group/card p-1">
+                      <svg viewBox="0 0 144 142" fill="none" className="w-full h-full">
+                        <circle cx="8" cy="8" r="4" stroke="#3b4f99" strokeWidth="1.2" fill="#040614" />
+                        <circle cx="136" cy="8" r="4" stroke="#3b4f99" strokeWidth="1.2" fill="#040614" />
+                        <circle cx="8" cy="134" r="4" stroke="#3b4f99" strokeWidth="1.2" fill="#040614" />
+
+                        <rect x="42" y="8" width="94" height="36" rx="2" stroke="#4a5ea8" strokeWidth="0.8" strokeDasharray="3 2" />
+
+                        {Array.from({ length: 10 }).map((_, i) => (
+                          <g key={`s3-top-${i}`} transform={`translate(${48 + i * 9}, 14)`}>
+                            <circle cx="0" cy="0" r="2.4" fill="#15803d" stroke="#22c55e" strokeWidth="0.6" />
+                            <circle cx="0" cy="0" r="0.9" fill="#040614" />
+                          </g>
+                        ))}
+                        {Array.from({ length: 10 }).map((_, i) => (
+                          <g key={`s3-bot-${i}`} transform={`translate(${48 + i * 9}, 38)`}>
+                            <circle cx="0" cy="0" r="2.4" fill="#15803d" stroke="#22c55e" strokeWidth="0.6" />
+                            <circle cx="0" cy="0" r="0.9" fill="#040614" />
+                          </g>
+                        ))}
+
+                        <circle cx="22" cy="24" r="12" stroke="#3b4f99" strokeWidth="0.8" strokeDasharray="2 2" />
+                        <circle cx="16" cy="18" r="1.8" fill="#15803d" />
+                        <circle cx="22" cy="18" r="1.8" fill="#15803d" />
+                        <circle cx="28" cy="18" r="1.8" fill="#15803d" />
+                        <circle cx="16" cy="30" r="1.8" fill="#15803d" />
+                        <circle cx="22" cy="30" r="1.8" fill="#15803d" />
+                        <circle cx="28" cy="30" r="1.8" fill="#15803d" />
+
+                        <path d="M22 18 L22 10 L40 10 L48 18" stroke="#040614" strokeWidth="4" strokeLinecap="round" />
+                        <path d="M22 18 L22 10 L40 10 L48 18" stroke="#38bdf8" strokeWidth="1.2" strokeLinecap="round" />
+
+                        <path d="M66 38 L66 52 L82 68 L82 120 L96 134" stroke="#040614" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M66 38 L66 52 L82 68 L82 120 L96 134" stroke="#38bdf8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+
+                        <path d="M75 38 L75 48 L90 63 L90 116 L104 130" stroke="#040614" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M75 38 L75 48 L90 63 L90 116 L104 130" stroke="#38bdf8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+
+                        <rect x="8" y="52" width="28" height="82" rx="1.5" stroke="#4a5ea8" strokeWidth="0.8" strokeDasharray="2 2" />
+                        {Array.from({ length: 4 }).map((_, i) => (
+                          <g key={`s3-screw-${i}`} transform={`translate(16, ${62 + i * 20})`}>
+                            <rect x="0" y="0" width="12" height="12" rx="1" fill="#040614" stroke="#3b4f99" strokeWidth="0.6" />
+                            <circle cx="6" cy="6" r="3.8" stroke="#7084d6" strokeWidth="0.7" fill="#0a0f30" />
+                            <line x1="3.5" y1="3.5" x2="8.5" y2="8.5" stroke="#7084d6" strokeWidth="0.8" />
+                            <circle cx="16" cy="6" r="1.6" fill="#15803d" />
+                          </g>
+                        ))}
+
+                        <circle cx="56" cy="26" r="1.8" fill="#38bdf8" className="animate-ping opacity-75" />
+                        <circle cx="56" cy="26" r="1.4" fill="#0284c7" />
+                      </svg>
+                    </div>
+
+                    {/* PCB 2 (Kanan Atas): Terinspirasi Layout ESP32-CAM */}
+                    <div className="relative flex-1 h-[142px] rounded-[10px] overflow-hidden border border-[#2b3c8a] bg-[#070b24] shadow-md group/card p-1">
+                      <svg viewBox="0 0 144 142" fill="none" className="w-full h-full">
+                        <rect x="52" y="6" width="40" height="22" rx="1" stroke="#4a5ea8" strokeWidth="0.8" />
+                        <g transform="translate(62, 17)">
+                          <circle cx="0" cy="0" r="5" stroke="#7084d6" strokeWidth="0.8" fill="#0a0f30" />
+                          <line x1="-3" y1="-3" x2="3" y2="3" stroke="#7084d6" strokeWidth="0.8" />
+                          <circle cx="0" cy="0" r="1.8" fill="#15803d" />
+                        </g>
+                        <g transform="translate(82, 17)">
+                          <circle cx="0" cy="0" r="5" stroke="#7084d6" strokeWidth="0.8" fill="#0a0f30" />
+                          <line x1="-3" y1="-3" x2="3" y2="3" stroke="#7084d6" strokeWidth="0.8" />
+                          <circle cx="0" cy="0" r="1.8" fill="#15803d" />
+                        </g>
+
+                        <rect x="14" y="32" width="116" height="102" rx="2" stroke="#4a5ea8" strokeWidth="0.9" />
+
+                        <circle cx="72" cy="56" r="12" stroke="#7084d6" strokeWidth="1.4" fill="none" />
+                        <circle cx="72" cy="56" r="6" stroke="#2b3c8a" strokeWidth="0.8" fill="#040614" />
+
+                        {Array.from({ length: 8 }).map((_, i) => (
+                          <g key={`cam-pin-l-${i}`} transform={`translate(24, ${46 + i * 11})`}>
+                            <circle cx="0" cy="0" r="2.5" fill="#15803d" stroke="#22c55e" strokeWidth="0.6" />
+                            <circle cx="0" cy="0" r="0.9" fill="#040614" />
+                          </g>
+                        ))}
+                        {Array.from({ length: 8 }).map((_, i) => (
+                          <g key={`cam-pin-r-${i}`} transform={`translate(120, ${46 + i * 11})`}>
+                            <circle cx="0" cy="0" r="2.5" fill="#15803d" stroke="#22c55e" strokeWidth="0.6" />
+                            <circle cx="0" cy="0" r="0.9" fill="#040614" />
+                          </g>
+                        ))}
+
+                        <path d="M62 24 L62 34 L36 60 L24 60" stroke="#040614" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M62 24 L62 34 L36 60 L24 60" stroke="#38bdf8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+
+                        <path d="M82 24 L82 30 L48 64 L34 64 L24 74" stroke="#040614" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M82 24 L82 30 L48 64 L34 64 L24 74" stroke="#38bdf8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+
+                        <rect x="58" y="94" width="28" height="20" rx="1.5" stroke="#3b4f99" strokeWidth="0.8" fill="#040614" />
+                        <circle cx="72" cy="104" r="2" fill="#15803d" />
+                      </svg>
+                    </div>
+
+                  </div>
+
+                  {/* BARIS BAWAH: 1 PCB DI TENGAH */}
+                  <div className="w-[196px] h-[132px] pt-2 flex flex-col items-center justify-center">
+                    <div className="relative w-full h-[116px] rounded-[10px] overflow-hidden border border-[#2b3c8a] bg-[#070b24] shadow-md group/card p-1">
+                      <svg viewBox="0 0 196 116" fill="none" className="w-full h-full">
+                        <circle cx="8" cy="8" r="3.5" stroke="#3b4f99" strokeWidth="1" fill="#040614" />
+                        <circle cx="188" cy="8" r="3.5" stroke="#3b4f99" strokeWidth="1" fill="#040614" />
+                        <circle cx="8" cy="108" r="3.5" stroke="#3b4f99" strokeWidth="1" fill="#040614" />
+                        <circle cx="188" cy="108" r="3.5" stroke="#3b4f99" strokeWidth="1" fill="#040614" />
+
+                        {Array.from({ length: 14 }).map((_, i) => (
+                          <g key={`terra-top-${i}`} transform={`translate(${72 + i * 7.5}, 10)`}>
+                            <circle cx="0" cy="0" r="1.9" fill="#15803d" stroke="#22c55e" strokeWidth="0.5" />
+                            <circle cx="0" cy="0" r="0.7" fill="#040614" />
+                          </g>
+                        ))}
+                        {Array.from({ length: 14 }).map((_, i) => (
+                          <g key={`terra-bot-${i}`} transform={`translate(${72 + i * 7.5}, 104)`}>
+                            <circle cx="0" cy="0" r="1.9" fill="#15803d" stroke="#22c55e" strokeWidth="0.5" />
+                            <circle cx="0" cy="0" r="0.7" fill="#040614" />
+                          </g>
+                        ))}
+
+                        {Array.from({ length: 8 }).map((_, i) => (
+                          <g key={`terra-rt-${i}`} transform={`translate(182, ${24 + i * 9.5})`}>
+                            <circle cx="0" cy="0" r="1.9" fill="#15803d" stroke="#22c55e" strokeWidth="0.5" />
+                            <circle cx="0" cy="0" r="0.7" fill="#040614" />
+                          </g>
+                        ))}
+
+                        <rect x="22" y="22" width="18" height="66" rx="1" stroke="#4a5ea8" strokeWidth="0.7" strokeDasharray="2 2" />
+                        {Array.from({ length: 4 }).map((_, i) => (
+                          <g key={`terra-relay-${i}`} transform={`translate(31, ${32 + i * 15})`}>
+                            <circle cx="0" cy="0" r="3.5" stroke="#7084d6" strokeWidth="0.6" fill="#0a0f30" />
+                            <line x1="-2" y1="-2" x2="2" y2="2" stroke="#7084d6" strokeWidth="0.7" />
+                            <circle cx="0" cy="0" r="1.2" fill="#15803d" />
+                          </g>
+                        ))}
+
+                        {Array.from({ length: 4 }).map((_, i) => (
+                          <g key={`terra-mid-${i}`} transform={`translate(74, ${44 + i * 9})`}>
+                            <circle cx="0" cy="0" r="1.9" fill="#15803d" stroke="#22c55e" strokeWidth="0.5" />
+                            <circle cx="0" cy="0" r="0.7" fill="#040614" />
+                          </g>
+                        ))}
+
+                        <path d="M12 28 L30 28 L56 54 L74 54" stroke="#040614" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M12 28 L30 28 L56 54 L74 54" stroke="#38bdf8" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+
+                        <path d="M74 62 L94 62 L120 88 L154 88" stroke="#040614" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M74 62 L94 62 L120 88 L154 88" stroke="#38bdf8" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+
+                        <path d="M74 44 L90 44 L114 20 L140 20" stroke="#040614" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M74 44 L90 44 L114 20 L140 20" stroke="#38bdf8" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+
+                        <g transform="translate(136, 42)">
+                          <path
+                            d="M6 24 C6 17 14 12 18 5 C20 12 17 20 10 24 Z"
+                            fill="#7084d6"
+                            opacity="0.8"
+                          />
+                          <path
+                            d="M10 22 C13 18 20 17 24 12 C24 17 20 22 14 24 Z"
+                            fill="#7084d6"
+                            opacity="0.8"
+                          />
+                          <circle cx="10" cy="28" r="1.5" fill="#7084d6" opacity="0.8" />
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+
+                </div>
               </div>
 
-              {/* Label Keterangan Hardware */}
-              <div className="font-mono text-[11px] tracking-widest text-neutral-500 uppercase flex items-center gap-2">
+              {/* LABEL STATUS */}
+              <div className="font-mono text-[11px] tracking-widest text-neutral-500 uppercase flex items-center gap-2 mt-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                ESP32-S3 · Relay &amp; Power Architecture
+                PCB Hardware Architecture
               </div>
             </div>
           </Link>
@@ -547,8 +647,7 @@ export default function Home() {
           >
             <span className="index_label__cgZWW">Curriculum Vitae</span>
             <span
-              className="font-script text-[96px] tracking-wide -rotate-2 select-none group-hover:scale-105 transition-transform"
-              style={{ color: "var(--colors-red)" }}
+              className="font-script text-[96px] tracking-wide -rotate-2 select-none text-[#0F1117] transition-all duration-300 group-hover:scale-105 group-hover:text-[#10B981]"
             >
               Ma&apos;sum&apos;s Resume
             </span>
@@ -629,24 +728,24 @@ export default function Home() {
           </div>
 
           {/* ======================================================== */}
-          {/* FRAME 08 (Manifesto): Resilient Engineering Principles   */}
+          {/* FRAME 08 (Manifesto): Systems Architect Dark Canvas      */}
           {/* ======================================================== */}
           <div
             data-variant="default"
-            className="index_frame p-24 flex flex-col justify-center"
+            className="index_frame p-24 flex flex-col justify-center transition-colors duration-500"
             style={{
               left: "8680px",
-              backgroundColor: "var(--yellow)",
-              borderColor: "#111111",
+              backgroundColor: "#0F1117",
+              borderColor: "#1E293B",
             }}
           >
-            <div className="text-[52px] font-bold tracking-tight text-black leading-[1.18] select-none">
+            <div className="text-[52px] font-bold tracking-tight text-[#F8FAFC] leading-[1.18] select-none">
               Build it resilient.<br />
               Secure every tier.<br />
               Optimize latency.<br />
               Bridge hardware &amp; software.<br />
               Make it impactful.<br />
-              Make it.
+              <span className="text-[#10B981]">Make it.</span>
             </div>
           </div>
 
