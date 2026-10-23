@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+@import "tailwindcss";
+
+/* 1. RESET BASE KURSOR & SISTEM SELEKSI (DILETAKKAN DI SINI) */
+@layer base {
+  *, *::before, *::after {
+    cursor: none !important; /* Nonaktifkan kursor sistem bawaan di semua elemen */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+}
+
+/* 2. DESIGN TOKENS */
+:root {
+  --yellow: #FFE600;
+  --orange: #FF5722;
+  --colors-red: #FF484C;
+  --colors-gray9: hsl(0 0% 56.1%);
+  --colors-gray12: #111111;
+  --bg-stage: #F7F7F7;
+  --blue: #0000FF;
+
+  /* Minimap Tokens */
+  --line-width: 1px;
+  --line-height: 18px;
+  --line-gap: 9px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-stage);
+  color: var(--colors-gray12);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  min-height: 100vh;
+}
+
+/* ======================================================== */
+/* GHOST SCROLL & CENTER-ANCHORED VIEWPORT STAGE            */
+/* ======================================================== */
+.index_ghost__Z6J_6 {
+  height: calc(8680px + 100vh);
+  width: 100vw;
+  pointer-events: none;
+}
+
+.index_center__dvDjE {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Kontainer induk: Jangkar awal langsung di tengah viewport sejak 0ms */
+.index_frames__d9hw4 {
+  position: relative;
+  left: calc(50vw - 600px);
+  height: 720px;
+  width: 9880px;
+  transform-origin: 600px center;
+  will-change: transform, opacity;
+  pointer-events: auto;
+  transition: opacity 0.35s ease-out;
+}
+
+/* Frame Base: Tepat 1200px x 720px dengan clipping mask */
+.index_frame {
+  position: absolute;
+  top: 0;
+  width: 1200px;
+  height: 720px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+}
+
+/* Wrapper Konten Internal Slide */
+.index_slide_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 720px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* Label mengambang di -28px */
+.index_label__cgZWW {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  color: var(--colors-gray9);
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+/* Sembunyikan scrollbar native */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
