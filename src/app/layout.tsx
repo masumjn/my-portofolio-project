@@ -3,8 +3,8 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
-  title: "Rauno Freiberg",
-  description: "Interaction designer working with Vercel and Devouring Details",
+  title: "Muhammad Ma'sum Juniyanto — Software Engineer",
+  description: "Personal portfolio showcasing enterprise systems, IoT hardware automation, and refined interaction design.",
 };
 
 export default function RootLayout({

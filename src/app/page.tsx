@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import CustomCursor from "@/components/CustomCursor";
 import TopBar from "@/components/TopBar";
-import PixelHand from "@/components/PixelHand";
 
 const MAX_SCROLL_DISTANCE = 8680;
 
@@ -25,7 +24,7 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [leftLabel, setLeftLabel] = useState("");
-  const [rightLabel, setRightLabel] = useState("Devouring Details");
+  const [rightLabel, setRightLabel] = useState("Enterprise Systems");
   const [copied, setCopied] = useState(false);
 
   const framesRef = useRef<HTMLDivElement>(null);
@@ -64,7 +63,6 @@ export default function Home() {
   // 2. NAVIGASI ARROW KEYBOARD (KIRI & KANAN) & TRACKPAD HORIZONTAL
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Abaikan jika fokus sedang berada pada form/input
       if (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement
@@ -72,7 +70,7 @@ export default function Home() {
         return;
       }
 
-      const STEP = 480; // Jarak langkah per ketukan tombol panah
+      const STEP = 480;
 
       if (e.key === "ArrowRight" || e.key === "ArrowDown") {
         e.preventDefault();
@@ -86,7 +84,6 @@ export default function Home() {
     };
 
     const handleWheel = (e: WheelEvent) => {
-      // Jika mendeteksi scroll/swipe horizontal dari trackpad (deltaX dominan)
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
         e.preventDefault();
         window.scrollBy({ top: e.deltaX });
@@ -152,7 +149,7 @@ export default function Home() {
         el.style.transform = `translate3d(${-shiftX}px, 0, 0)`;
       };
 
-      // Frame 02 DD (left: 1240px)
+      // Frame 02 Inisial MJ (left: 1240px)
       updateClampedSlide(ddContentRef.current, 1240);
 
       // Frame 03 Craft (left: 2480px)
@@ -167,27 +164,27 @@ export default function Home() {
 
       // Wayfinding Labels Dinamis
       let l = "";
-      let r = "Devouring Details";
+      let r = "Enterprise Systems";
       if (curY < 620) {
         l = "";
-        r = "Devouring Details";
+        r = "Enterprise Systems";
       } else if (curY < 1840) {
-        l = "Devouring Details";
+        l = "Enterprise Systems";
         r = "Craft";
       } else if (curY < 3080) {
         l = "Craft";
-        r = "History of Software Design";
+        r = "IoT & Hardware";
       } else if (curY < 4340) {
-        l = "History of Software Design";
+        l = "IoT & Hardware";
         r = "Projects";
       } else if (curY < 5560) {
         l = "Projects";
-        r = "Field Notes";
+        r = "Curriculum Vitae";
       } else if (curY < 6820) {
-        l = "Field Notes";
-        r = "Twitter";
+        l = "Curriculum Vitae";
+        r = "Contact";
       } else if (curY < 8060) {
-        l = "Twitter";
+        l = "Contact";
         r = "Manifesto";
       } else {
         l = "Manifesto";
@@ -225,7 +222,7 @@ export default function Home() {
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigator.clipboard.writeText("rauno@freiberg.ee");
+    navigator.clipboard.writeText("masumjuniyanto06@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -254,7 +251,7 @@ export default function Home() {
         >
 
           {/* ======================================================== */}
-          {/* FRAME 01 (Hero): Stagger Reveal & Expanding Yellow Circle */}
+          {/* FRAME 01 (Hero): Muhammad Ma'sum Juniyanto               */}
           {/* ======================================================== */}
           <section
             data-variant="main"
@@ -279,12 +276,12 @@ export default function Home() {
 
             <h1 className="relative z-10 text-[52px] leading-[1.14] font-normal tracking-tight text-neutral-900 max-w-2xl">
               {[
-                { text: "Rauno Freiberg", offset: false },
-                { text: "is an Estonian", offset: true },
-                { text: "interaction", offset: false },
-                { text: "designer", offset: true },
-                { text: "working with Vercel", offset: false },
-                { text: "and Devouring Details", offset: true },
+                { text: "Muhammad Ma'sum", offset: false },
+                { text: "Juniyanto", offset: true },
+                { text: "is a software engineer", offset: false },
+                { text: "crafting resilient systems", offset: true },
+                { text: "and tactile web interfaces", offset: false },
+                { text: "based in Indonesia", offset: true },
               ].map((line, idx) => (
                 <div key={idx} className="overflow-hidden block leading-[1.14]">
                   <span
@@ -304,24 +301,22 @@ export default function Home() {
           </section>
 
           {/* ======================================================== */}
-          {/* FRAME 02 (DD): Early Clamped Slide                       */}
+          {/* FRAME 02 (Monogram M - J): Enterprise Systems Slide      */}
           {/* ======================================================== */}
-          <a
+          <Link
             data-variant="slide"
-            href="https://www.devouringdetails.com"
-            target="_blank"
-            rel="noreferrer"
+            href="/craft"
             className="index_frame group cursor-none"
             style={{ left: "1240px" }}
           >
-            <span className="index_label__cgZWW">Devouring Details</span>
+            <span className="index_label__cgZWW">Enterprise Systems</span>
 
             <div
               ref={ddContentRef}
               className="index_slide_content"
             >
               <span className="text-[580px] font-black tracking-tighter leading-none text-black select-none shrink-0 h-[720px] flex items-center pl-0">
-                D
+                M
               </span>
               <div
                 className="shrink-0 rounded-full mx-6"
@@ -332,10 +327,10 @@ export default function Home() {
                 }}
               />
               <span className="text-[580px] font-black tracking-tighter leading-none text-black select-none shrink-0 h-[720px] flex items-center">
-                D
+                J
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* ======================================================== */}
           {/* FRAME 03 (Craft): Tautan Aktif Internal ke /craft         */}
@@ -361,19 +356,160 @@ export default function Home() {
           </Link>
 
           {/* ======================================================== */}
-          {/* FRAME 04 (Retro Hand): left: 3720px                      */}
+          {/* FRAME 04 (IoT & Embedded Node): Custom ESP32-S3 PCB      */}
           {/* ======================================================== */}
-          <a
+          <Link
             data-variant="default"
-            href="https://historyofsoftware.org"
-            target="_blank"
-            rel="noreferrer"
+            href="/craft"
             className="index_frame flex items-center justify-center group cursor-none"
             style={{ left: "3720px" }}
           >
-            <span className="index_label__cgZWW">History of Software Design</span>
-            <PixelHand />
-          </a>
+            <span className="index_label__cgZWW">IoT &amp; Hardware Prototype</span>
+
+            {/* PCB BOARD WIDGET */}
+            <div className="relative flex flex-col items-center gap-3 transition-transform duration-300 group-hover:scale-[1.03]">
+              <div className="relative w-[300px] h-[340px] rounded-[14px] bg-[#0c1236] border-2 border-[#1e2a6b] shadow-2xl overflow-hidden p-3 select-none">
+                
+                {/* SVG Skematik Layout PCB ESP32-S3 */}
+                <svg
+                  viewBox="0 0 300 340"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-full h-full"
+                >
+                  {/* Lubang Baut Sudut PCB (Mounting Holes) */}
+                  <circle cx="16" cy="16" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
+                  <circle cx="284" cy="16" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
+                  <circle cx="16" cy="324" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
+                  <circle cx="284" cy="324" r="6" stroke="#4355a4" strokeWidth="2" fill="#06091e" />
+
+                  {/* Silkscreen Batas Modul ESP32-S3 */}
+                  <rect x="92" y="16" width="176" height="74" rx="3" stroke="#6b7ec9" strokeWidth="1.2" strokeDasharray="3 2" />
+                  <text x="274" y="24" fill="#889ce8" fontSize="6" fontFamily="monospace" transform="rotate(90 274 24)">
+                    ESP32-S3-DEVKITC-1-N8R2
+                  </text>
+
+                  {/* Pin Header ESP32 Baris Atas */}
+                  {Array.from({ length: 18 }).map((_, i) => (
+                    <g key={`pin-top-${i}`} transform={`translate(${98 + i * 9.2}, 24)`}>
+                      <circle cx="0" cy="0" r="2.8" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
+                      <circle cx="0" cy="0" r="1.1" fill="#050814" />
+                    </g>
+                  ))}
+
+                  {/* Pin Header ESP32 Baris Bawah */}
+                  {Array.from({ length: 18 }).map((_, i) => (
+                    <g key={`pin-bot-${i}`} transform={`translate(${98 + i * 9.2}, 82)`}>
+                      <circle cx="0" cy="0" r="2.8" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
+                      <circle cx="0" cy="0" r="1.1" fill="#050814" />
+                    </g>
+                  ))}
+
+                  {/* Header I2S / Sensor Audio Bulat (Kiri Atas) */}
+                  <circle cx="44" cy="48" r="18" stroke="#4355a4" strokeWidth="1" strokeDasharray="2 2" fill="none" />
+                  <text x="32" y="44" fill="#7182cc" fontSize="5" fontFamily="monospace">GND VDD SD</text>
+                  <text x="32" y="58" fill="#7182cc" fontSize="5" fontFamily="monospace">L/R WS SCK</text>
+                  <circle cx="36" cy="36" r="2.2" fill="#16a34a" />
+                  <circle cx="44" cy="36" r="2.2" fill="#16a34a" />
+                  <circle cx="52" cy="36" r="2.2" fill="#16a34a" />
+                  <circle cx="36" cy="62" r="2.2" fill="#16a34a" />
+                  <circle cx="44" cy="62" r="2.2" fill="#16a34a" />
+                  <circle cx="52" cy="62" r="2.2" fill="#16a34a" />
+
+                  {/* Jalur Tembaga / PCB Traces (Khas Sudut 45 Derajat) */}
+                  <path d="M44 36 L44 26 L80 26 L92 38 L98 38" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M52 36 L52 30 L82 30 L94 42 L98 42" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M44 62 L74 62 L90 74 L98 74" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M52 62 L78 62 L94 78 L98 78" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M125 82 L125 106 L154 135 L154 286 L180 312 L196 312" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M134 82 L134 102 L162 130 L162 280 L186 304 L204 304" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M236 298 L248 310 L260 310" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M246 290 L256 300 L268 300" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+
+                  {/* Blok Relay 4-Channel (Sisi Kiri) */}
+                  <rect x="18" y="104" width="76" height="216" rx="2" stroke="#6b7ec9" strokeWidth="1.2" strokeDasharray="3 2" />
+                  <text x="32" y="332" fill="#889ce8" fontSize="6.5" fontFamily="monospace">RELAY-4-SRD</text>
+
+                  {/* Terminal Screw Relay */}
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <g key={`relay-term-${i}`} transform={`translate(26, ${116 + i * 25})`}>
+                      <rect x="0" y="0" width="22" height="18" rx="2" fill="#080d28" stroke="#4355a4" strokeWidth="1" />
+                      <circle cx="11" cy="9" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
+                      <line x1="7" y1="5" x2="15" y2="13" stroke="#889ce8" strokeWidth="1.2" />
+                      <circle cx="28" cy="9" r="2.2" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
+                      <circle cx="28" cy="9" r="0.9" fill="#050814" />
+                    </g>
+                  ))}
+
+                  {/* Header Konektor Tengah (Jumper / Sensor Header) */}
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <g key={`mid-hdr-${i}`} transform={`translate(154, ${118 + i * 10})`}>
+                      <rect x="-4" y="-4" width="8" height="8" rx="1.5" stroke="#4355a4" strokeWidth="0.8" fill="#0c1236" />
+                      <circle cx="0" cy="0" r="2.8" fill="#16a34a" stroke="#22c55e" strokeWidth="0.8" />
+                      <circle cx="0" cy="0" r="1.1" fill="#050814" />
+                    </g>
+                  ))}
+
+                  {/* Modul Step-Down LM2596 (Kanan Bawah) */}
+                  <rect x="228" y="160" width="58" height="68" rx="2" stroke="#6b7ec9" strokeWidth="1.2" strokeDasharray="3 2" />
+                  <text x="282" y="166" fill="#889ce8" fontSize="5.5" fontFamily="monospace" transform="rotate(90 282 166)">
+                    DC-DC-LM2596-DISP
+                  </text>
+                  <circle cx="266" cy="144" r="7" stroke="#4355a4" strokeWidth="1" />
+                  <circle cx="266" cy="244" r="7" stroke="#4355a4" strokeWidth="1" />
+
+                  {/* Terminal Blok Daya: OUT & IN (Bawah Kanan) */}
+                  {/* OUT */}
+                  <g transform="translate(176, 290)">
+                    <rect x="0" y="0" width="38" height="34" rx="2" stroke="#6b7ec9" strokeWidth="1.2" />
+                    <text x="12" y="-4" fill="#889ce8" fontSize="6.5" fontFamily="monospace">OUT</text>
+                    <g transform="translate(10, 16)">
+                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
+                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
+                      <text x="-3" y="12" fill="#22c55e" fontSize="7" fontWeight="bold">-</text>
+                    </g>
+                    <g transform="translate(28, 16)">
+                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
+                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
+                      <text x="-3" y="12" fill="#ef4444" fontSize="7" fontWeight="bold">+</text>
+                    </g>
+                  </g>
+
+                  {/* IN */}
+                  <g transform="translate(242, 290)">
+                    <rect x="0" y="0" width="38" height="34" rx="2" stroke="#6b7ec9" strokeWidth="1.2" />
+                    <text x="14" y="-4" fill="#889ce8" fontSize="6.5" fontFamily="monospace">IN</text>
+                    <g transform="translate(10, 16)">
+                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
+                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
+                      <text x="-3" y="12" fill="#ef4444" fontSize="7" fontWeight="bold">+</text>
+                    </g>
+                    <g transform="translate(28, 16)">
+                      <circle cx="0" cy="0" r="6" stroke="#889ce8" strokeWidth="1" fill="#0e1744" />
+                      <line x1="-4" y1="-4" x2="4" y2="4" stroke="#889ce8" strokeWidth="1.2" />
+                      <text x="-3" y="12" fill="#22c55e" fontSize="7" fontWeight="bold">-</text>
+                    </g>
+                  </g>
+
+                  {/* Status Indicator LED (Blinking Pulse) */}
+                  <g transform="translate(106, 44)">
+                    <circle cx="0" cy="0" r="2.5" fill="#38bdf8" className="animate-ping opacity-75" />
+                    <circle cx="0" cy="0" r="2" fill="#0284c7" />
+                  </g>
+                  <g transform="translate(106, 60)">
+                    <circle cx="0" cy="0" r="2.5" fill="#22c55e" className="animate-pulse" />
+                    <circle cx="0" cy="0" r="1.8" fill="#16a34a" />
+                  </g>
+                </svg>
+              </div>
+
+              {/* Label Keterangan Hardware */}
+              <div className="font-mono text-[11px] tracking-widest text-neutral-500 uppercase flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                ESP32-S3 · Relay &amp; Power Architecture
+              </div>
+            </div>
+          </Link>
 
           {/* ======================================================== */}
           {/* FRAME 05 (Projects): Tautan Aktif Internal ke /projects   */}
@@ -399,27 +535,27 @@ export default function Home() {
           </Link>
 
           {/* ======================================================== */}
-          {/* FRAME 06 (Notes): left: 6200px                           */}
+          {/* FRAME 06 (Resume / CV): Direct Google Drive Document     */}
           {/* ======================================================== */}
           <a
             data-variant="default"
-            href="https://rauno.me/notes"
+            href="https://drive.google.com/file/d/1Ec-WIm0uWnI0MDkfuv2DDbNJLUadeAG5/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
             className="index_frame flex items-center justify-center group cursor-none"
             style={{ left: "6200px" }}
           >
-            <span className="index_label__cgZWW">Field Notes</span>
+            <span className="index_label__cgZWW">Curriculum Vitae</span>
             <span
-              className="font-script text-[96px] tracking-wide -rotate-2 select-none"
+              className="font-script text-[96px] tracking-wide -rotate-2 select-none group-hover:scale-105 transition-transform"
               style={{ color: "var(--colors-red)" }}
             >
-              Rauno&apos;s Field Notes
+              Ma&apos;sum&apos;s Resume
             </span>
           </a>
 
           {/* ======================================================== */}
-          {/* FRAME 07 (Contact): In-Place Baseline Swap Copy Email     */}
+          {/* FRAME 07 (Contact): Professional Social & Email Copy     */}
           {/* ======================================================== */}
           <div
             data-variant="default"
@@ -429,22 +565,19 @@ export default function Home() {
             <div className="flex justify-between items-center text-2xl font-normal">
               <a
                 data-position="top-left"
-                href="https://x.com/raunofreiberg"
+                href="https://linkedin.com/in/muhammad-ma-sum-juniyanto-91077b335"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:opacity-50 transition-opacity cursor-none"
               >
-                Twitter
+                LinkedIn
               </a>
-              <a
+              <span
                 data-position="top-right"
-                href="https://2023.rauno.me"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-50 transition-opacity font-mono text-neutral-500 text-lg cursor-none"
+                className="font-mono text-neutral-500 text-lg cursor-none select-none"
               >
-                2023
-              </a>
+                2026
+              </span>
             </div>
 
             <div className="flex items-center justify-center">
@@ -477,18 +610,15 @@ export default function Home() {
             </div>
 
             <div className="flex justify-between items-center text-2xl font-normal">
-              <a
+              <span
                 data-position="bottom-left"
-                href="https://2022.rauno.me"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:opacity-50 transition-opacity font-mono text-neutral-500 text-lg cursor-none"
+                className="font-mono text-neutral-500 text-lg cursor-none select-none"
               >
                 2022
-              </a>
+              </span>
               <a
                 data-position="bottom-right"
-                href="https://github.com/raunofreiberg"
+                href="https://github.com/masumjn"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:opacity-50 transition-opacity cursor-none"
@@ -499,7 +629,7 @@ export default function Home() {
           </div>
 
           {/* ======================================================== */}
-          {/* FRAME 08 (Manifesto): left: 8680px                       */}
+          {/* FRAME 08 (Manifesto): Resilient Engineering Principles   */}
           {/* ======================================================== */}
           <div
             data-variant="default"
@@ -511,12 +641,11 @@ export default function Home() {
             }}
           >
             <div className="text-[52px] font-bold tracking-tight text-black leading-[1.18] select-none">
-              Make it fast.<br />
-              Make it beautiful.<br />
-              Make it consistent.<br />
-              Make it carefully.<br />
-              Make it timeless.<br />
-              Make it soulful.<br />
+              Build it resilient.<br />
+              Secure every tier.<br />
+              Optimize latency.<br />
+              Bridge hardware &amp; software.<br />
+              Make it impactful.<br />
               Make it.
             </div>
           </div>
